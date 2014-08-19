@@ -1,4 +1,4 @@
-/*global $:false, startsWith:false */
+/* global $:false, _:false */
 
 $(function() {
     setInterval(function() {
@@ -6,9 +6,9 @@ $(function() {
             var a = $(this),
                 href = a.attr('href');
 
-            if (href && ((href.indexOf('jira.com') == -1) &&
-                            (startsWith(href, 'http://') || startsWith(href, '//') || startsWith(href, 'https://')) ||
-                        (href.indexOf('/browse/OPSC-') != -1))) {
+            if (href && ((href.indexOf('jira.com') === -1) &&
+                            (_.startsWith(href, 'http://') || _.startsWith(href, '//') || _.startsWith(href, 'https://')) ||
+                        (href.indexOf('/browse/OPSC-') !== -1))) {
                 a.attr('target', '_blank');
             }
         });
@@ -18,8 +18,8 @@ $(function() {
         var a = $(this),
             href = a.attr('href');
 
-        if (href && (href.indexOf('jira.com') == -1) &&
-                (startsWith(href, 'http://') || startsWith(href, '//') || startsWith(href, 'https://'))) {
+        if (href && (href.indexOf('jira.com') === -1) &&
+                (_.startsWith(href, 'http://') || _.startsWith(href, '//') || _.startsWith(href, 'https://'))) {
             a.attr('target', '_blank');
         }
     });
